@@ -1,7 +1,7 @@
 package com.example.newsapp.LocalDataSource
 
 import androidx.room.*
-import com.example.newsapp.Model.Post.PostEntity
+import com.example.newsapp.LocalDataSource.Model.Post.PostEntity
 
 @Dao
 interface NewsDao{

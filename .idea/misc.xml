@@ -6,10 +6,15 @@
         <entry key="..\:/Users/Alexandr/Desktop/projects/News/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/Alexandr/Desktop/projects/News/app/src/main/res/layout/activity_news.xml" value="0.23354958294717332" />
         <entry key="..\:/Users/Alexandr/Desktop/projects/News/app/src/main/res/layout/category_item.xml" value="0.21467391304347827" />
+        <entry key="..\:/Users/Alexandr/Desktop/projects/News/app/src/main/res/layout/fragment_group.xml" value="0.20923913043478262" />
         <entry key="..\:/Users/Alexandr/Desktop/projects/News/app/src/main/res/layout/fragment_main_news.xml" value="0.21467391304347827" />
+        <entry key="..\:/Users/Alexandr/Desktop/projects/News/app/src/main/res/layout/fragment_profile.xml" value="0.20923913043478262" />
         <entry key="..\:/Users/Alexandr/Desktop/projects/News/app/src/main/res/layout/fragment_second.xml" value="0.21965579710144928" />
         <entry key="..\:/Users/Alexandr/Desktop/projects/News/app/src/main/res/layout/fragment_sign_in.xml" value="0.2296195652173913" />
         <entry key="..\:/Users/Alexandr/Desktop/projects/News/app/src/main/res/layout/fragment_sign_up.xml" value="0.2296195652173913" />
+        <entry key="..\:/Users/Alexandr/Desktop/projects/News/app/src/main/res/layout/fragment_subscribes.xml" value="0.1983695652173913" />
+        <entry key="..\:/Users/Alexandr/Desktop/projects/News/app/src/main/res/layout/group_header_item.xml" value="0.20380434782608695" />
+        <entry key="..\:/Users/Alexandr/Desktop/projects/News/app/src/main/res/layout/group_item.xml" value="0.1983695652173913" />
         <entry key="..\:/Users/Alexandr/Desktop/projects/News/app/src/main/res/layout/post_item.xml" value="0.264" />
       </map>
     </option>

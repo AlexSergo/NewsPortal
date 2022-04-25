@@ -1,6 +1,5 @@
 package com.example.newsapp.View.Registration
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,12 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.example.newsapp.Model.User.UserEntity
+import com.example.newsapp.LocalDataSource.Model.User.UserEntity
 import com.example.newsapp.ViewModel.NewsViewModel
 import com.example.newsapp.ViewModel.NewsViewModelFactory
 import com.example.newsapp.ViewModel.RepositoryInitializer
 import com.example.newsapp.databinding.FragmentSignUpBinding
-import com.example.newsapp.View.NewsActivity
 
 class SignUpFragment : Fragment() {
 
@@ -57,10 +55,10 @@ class SignUpFragment : Fragment() {
             userLiveData.value?.let {
                 if (email == it.email) {
 
-                    val activityCallback = requireActivity() as ActivityCallback
-                    activityCallback.saveUserData(it)
+                    val RegistrationActivityCallback = requireActivity() as RegistrationActivityCallback
+                    RegistrationActivityCallback.saveUserData(it)
 
-                    activityCallback.showNewsActivity()
+                    RegistrationActivityCallback.showNewsActivity()
                 }
             }
         })

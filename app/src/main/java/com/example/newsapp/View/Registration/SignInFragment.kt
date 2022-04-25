@@ -1,6 +1,5 @@
 package com.example.newsapp.View.Registration
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,8 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.example.newsapp.Model.User.UserEntity
-import com.example.newsapp.View.NewsActivity
+import com.example.newsapp.LocalDataSource.Model.User.UserEntity
 import com.example.newsapp.ViewModel.NewsViewModel
 import com.example.newsapp.ViewModel.NewsViewModelFactory
 import com.example.newsapp.ViewModel.RepositoryInitializer
@@ -35,8 +33,8 @@ class SignInFragment : Fragment() {
             tryLogin()
         }
         binding.signUpButton.setOnClickListener{
-            val activityCallback = requireActivity() as ActivityCallback
-            activityCallback.showRegisterFragment()
+            val registrationActivityCallback = requireActivity() as RegistrationActivityCallback
+            registrationActivityCallback.showRegisterFragment()
         }
         return binding.root
     }
@@ -59,10 +57,14 @@ class SignInFragment : Fragment() {
             test.onSuccess {
                 it?.let {
                     if (email == it.email){
-                        val activityCallback = requireActivity() as ActivityCallback
-                        activityCallback.saveUserData(it)
+                        val registrationActivityCallback = requireActivity() as RegistrationActivityCallback
+                        registrationActivityCallback.saveUserData(UserEntity(
+                            email = email,
+                        password = password,
+                        name = it.name,
+                        token = it.token))
 
-                        activityCallback.showNewsActivity()
+                        registrationActivityCallback.showNewsActivity()
                     }
                 }
             }

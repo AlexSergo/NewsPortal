@@ -3,7 +3,7 @@ package com.example.newsapp.ViewModel
 import android.content.Context
 import com.example.newsapp.LocalDataSource.NewsDao
 import com.example.newsapp.LocalDataSource.NewsDatabase
-import com.example.newsapp.Model.Repository
+import com.example.newsapp.LocalDataSource.Model.Repository
 import com.example.newsapp.RemoteDataSource.NewsApi
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

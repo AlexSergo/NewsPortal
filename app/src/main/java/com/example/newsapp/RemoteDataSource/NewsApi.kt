@@ -1,15 +1,15 @@
 package com.example.newsapp.RemoteDataSource
 
-import com.example.newsapp.Model.Category.CategoryResponse
-import com.example.newsapp.Model.Comment.CommentResponse
-import com.example.newsapp.Model.Group.GroupInfoResponse
-import com.example.newsapp.Model.Group.GroupResponse
-import com.example.newsapp.Model.Like.LikeResponse
-import com.example.newsapp.Model.Post.PostList
-import com.example.newsapp.Model.Post.PostResponse
-import com.example.newsapp.Model.User.LoginResponse
-import com.example.newsapp.Model.User.UserLoginRequest
-import com.example.newsapp.Model.User.UserRegisterRequest
+import com.example.newsapp.RemoteDataSource.Model.Category.CategoryResponse
+import com.example.newsapp.RemoteDataSource.Model.Comment.CommentResponse
+import com.example.newsapp.RemoteDataSource.Model.Group.GroupInfoResponse
+import com.example.newsapp.RemoteDataSource.Model.Group.GroupResponse
+import com.example.newsapp.LocalDataSource.Model.Like.LikeResponse
+import com.example.newsapp.RemoteDataSource.Model.Post.PostList
+import com.example.newsapp.RemoteDataSource.Model.Post.PostResponse
+import com.example.newsapp.RemoteDataSource.Model.User.LoginResponse
+import com.example.newsapp.RemoteDataSource.Model.User.UserLoginRequest
+import com.example.newsapp.RemoteDataSource.Model.User.UserRegisterRequest
 import retrofit2.http.*
 
 interface NewsApi {
@@ -23,15 +23,19 @@ interface NewsApi {
     @GET("/api/groups/{id}")
     suspend fun getGroupById(@Path("id") id: Int,
                              @Header("Authorization") token: String): GroupInfoResponse
+
     @Headers("Content-Type: application/json")
-    @POST("/api/groups")
-    suspend fun postNewGroup(@Body group: GroupResponse)
-    @PUT("/api/groups/{id}")
-    suspend fun updateGroup(@Path("id") id: Int)
+    @POST("/api/subscribes/group/{id}")
+    suspend fun subscribe(@Path("id") groupId: Int,
+                          @Header("Authorization") token: String): Any
+    @DELETE("/api/subscribes/group/{id}")
+    suspend fun unsubscribe(@Path("id") groupId: Int,
+                          @Header("Authorization") token: String): SubscribeResponse
+    @GET("/api/subscribes")
+    suspend fun getSubscribes(@Header("Authorization") token: String): GroupResponse
 
     @GET("/api/posts/group/{id}")
     suspend fun getPostsForGroup(@Path("id") id: Int): PostList
-    @Headers("Content-Type: application/json")
     @POST("/api/posts")
     suspend fun postNewPost(@Body post: PostResponse)
     @PUT("/api/posts/{id}")
