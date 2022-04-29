@@ -4,46 +4,94 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="16dp"
+    android:paddingHorizontal="18dp"
     tools:context=".View.Profile.ProfileFragment">
 
     <ImageView
-        android:id="@+id/userAvatar"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        tools:src="@tools:sample/avatars"
+        android:id="@+id/user_avatar"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/background"
+        android:layout_marginTop="23dp"
+        android:contentDescription="@string/user_avatar"
+        android:src="@drawable/ic_avatar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/new_entry"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingVertical="15dp"
+        android:text="@string/profile_entry"
+        android:textAllCaps="false"
+        android:textColor="#66239B"
+        android:textSize="14sp"
+        app:icon="@drawable/ic_edit"
+        app:iconPadding="10dp"
+        app:iconTint="#66239B"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/user_avatar"
+        app:layout_constraintBottom_toBottomOf="@id/user_avatar"
+        app:strokeColor="#dfd0ec" />
 
     <TextView
-        android:id="@+id/userName"
+        android:id="@+id/user_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Имя"
-        android:textSize="22sp"
-        android:layout_marginLeft="16dp"
-        app:layout_constraintStart_toEndOf="@id/userAvatar"
-        app:layout_constraintTop_toTopOf="@id/userAvatar"/>
+        android:layout_marginTop="20dp"
+        android:text="Тишкина Алина"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/user_avatar" />
 
     <TextView
-        android:id="@+id/userEmail"
+        android:id="@+id/user_date_register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="zzz@mail.ru"
-        android:textSize="22sp"
-        android:layout_marginLeft="16dp"
-        app:layout_constraintStart_toEndOf="@id/userAvatar"
-        app:layout_constraintTop_toBottomOf="@id/userName"/>
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/raleway"
+        android:text="Дата регистрации: 12 апреля 2022 год"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/user_name" />
 
-    <Button
-        android:id="@+id/subscriptionsButton"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/delete_profile"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Подписки"
-        android:textSize="18sp"
         android:layout_marginTop="32dp"
-        app:layout_constraintStart_toStartOf="@id/userAvatar"
-        app:layout_constraintTop_toBottomOf="@id/userAvatar"/>
+        android:paddingVertical="15dp"
+        android:text="@string/profile_delete"
+        android:textAllCaps="false"
+        android:textColor="#9B2364"
+        android:textSize="14sp"
+        app:icon="@drawable/ic_delete"
+        app:iconPadding="10dp"
+        app:iconTint="#9B2364"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/user_date_register"
+        app:strokeColor="#eacbdd" />
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/exit_profile"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingVertical="15dp"
+        android:text="@string/profile_exit"
+        android:textAllCaps="false"
+        android:textColor="#234C9B"
+        android:textSize="14sp"
+        app:icon="@drawable/ic_exit"
+        app:iconTint="#234C9B"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/delete_profile"
+        app:strokeColor="#c0c2e6" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

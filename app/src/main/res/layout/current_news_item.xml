@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageButton
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@null"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_left"
+        android:contentDescription="@string/back_btn" />
+
+    <ImageButton
+        android:id="@+id/save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="15dp"
+        android:background="@null"
+        app:layout_constraintBottom_toBottomOf="@id/back"
+        app:layout_constraintEnd_toStartOf="@id/share"
+        app:layout_constraintTop_toTopOf="@id/back"
+        app:srcCompat="@drawable/ic_save_news_base"
+        android:contentDescription="@string/save" />
+
+    <ImageButton
+        android:id="@+id/share"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:background="@null"
+        app:layout_constraintBottom_toBottomOf="@id/back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/back"
+        app:srcCompat="@drawable/ic_upload"
+        android:contentDescription="@string/share" />
+
+    <ScrollView
+        android:id="@+id/scroll_news"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/back">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white">
+
+                <ImageView
+                    android:id="@+id/search_avatar"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginStart="12dp"
+                    android:background="@drawable/background_search_ico"
+                    android:contentDescription="@string/user_avatar"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_avatar" />
+
+                <TextView
+                    android:id="@+id/post_category"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="7dp"
+                    android:fontFamily="@font/raleway"
+                    android:text="Бизнесс"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@id/search_avatar"
+                    app:layout_constraintStart_toEndOf="@id/search_avatar"
+                    app:layout_constraintTop_toTopOf="@id/search_avatar" />
+
+                <TextView
+                    android:id="@+id/post_author_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/raleway"
+                    android:text="Алеша Попович"
+                    android:textColor="@color/black"
+
+                    app:layout_constraintBottom_toBottomOf="@id/search_avatar"
+                    app:layout_constraintEnd_toStartOf="@id/post_date"
+                    app:layout_constraintStart_toEndOf="@id/post_category"
+                    app:layout_constraintTop_toTopOf="@id/search_avatar" />
+
+                <TextView
+                    android:id="@+id/post_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="23dp"
+                    android:fontFamily="@font/raleway"
+                    android:text="23 Июня, 19:12"
+                    android:textColor="@color/black"
+                    app:layout_constraintBottom_toBottomOf="@id/search_avatar"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/search_avatar" />
+
+                <TextView
+                    android:id="@+id/post_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:paddingHorizontal="10dp"
+                    android:text="Виртуальные карты, сервисы помощи и карта в Казахстане: как можно оплатить иностранные сервисы"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/search_avatar" />
+
+                <TextView
+                    android:id="@+id/post_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/raleway"
+                    android:padding="10dp"
+                    android:text="Не все из них безопасны или официальны."
+                    android:textColor="@color/black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/post_title" />
+
+                <ImageView
+                    android:id="@+id/post_img"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/post_text"
+                    app:srcCompat="@drawable/example"
+                    android:contentDescription="@string/main_news_photo" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/raleway"
+                    android:lineSpacingMultiplier="1.27"
+                    android:padding="16dp"
+                    android:text="Текс (от лат. textura — ткань, связь, строение или от лат.  Текс равен линейной плотности такого однородного тела (волокна, нити и т. п.), масса которого равна 1 г, а длина — 1 км. Применяется в текстильной промышленности[1].
+
+В соответствии с «Положением о единицах величин, допускаемых к применению в Российской Федерации», текс допущен к использованию в качестве внесистемной единицы линейной плотности без ограничения срока действия допуска с областью применения «текстильная промышленность»[2]. Тем же Положением не допускается применение наименований и обозначений единиц линейной плотности с дольными и кратными приставками СИ.
+темной единицы линейной плотности без ограничения срока действия допуска с областью применения «текстильная промышленность»[2]. Тем же Поло
+"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/post_img" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <View
+                    android:id="@+id/view"
+                    android:layout_width="0dp"
+                    android:layout_height="15dp"
+                    android:background="#E8E0FF"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/view" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+
+
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/post_like"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
+        android:drawablePadding="5dp"
+        android:fontFamily="@font/raleway"
+        android:text="120"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:drawableStartCompat="@drawable/ic_like"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/post_comment"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_marginStart="12dp"
+        android:drawablePadding="5dp"
+        android:fontFamily="@font/raleway"
+        android:text="120"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:drawableLeftCompat="@drawable/ic_comment"
+        app:layout_constraintStart_toEndOf="@id/post_like"
+        app:layout_constraintTop_toTopOf="@id/post_like" />
+
+    <TextView
+        android:id="@+id/post_views"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_marginStart="12dp"
+        android:drawablePadding="5dp"
+        android:fontFamily="@font/raleway"
+        android:text="120"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:drawableLeftCompat="@drawable/ic_views"
+        app:layout_constraintStart_toEndOf="@id/post_comment"
+        app:layout_constraintTop_toTopOf="@id/post_like" />
+
+    <com.google.android.material.button.MaterialButton
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="wrap_content"
+        android:textColor="#8468D4"
+        app:strokeColor="#8468D4"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="12dp"
+        android:fontFamily="@font/raleway"
+        android:text="@string/you_sub"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/post_like"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/post_like"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

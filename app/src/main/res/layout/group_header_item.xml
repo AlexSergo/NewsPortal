@@ -1,55 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-
-    <ImageView
-        android:id="@+id/groupImage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_launcher_background"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
     <TextView
-        android:id="@+id/groupName"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Название группы"
-        android:textSize="22sp"
-        android:layout_marginLeft="16dp"
-        app:layout_constraintStart_toEndOf="@id/groupImage"
-        app:layout_constraintTop_toTopOf="parent"/>
+        android:paddingHorizontal="20dp"
+        android:paddingTop="25dp"
+        android:paddingBottom="10dp"
+        android:text="@string/my_subs"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/groupSubs"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Подписчики: "
-        android:textSize="20sp"
-        android:layout_marginTop="8dp"
-        android:layout_marginLeft="16dp"
-        app:layout_constraintStart_toEndOf="@id/groupImage"
-        app:layout_constraintTop_toBottomOf="@id/groupName"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:background="#E8E0FF" />
 
-    <TextView
-        android:id="@+id/subsAmount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="120 000"
-        android:textSize="20sp"
-        android:layout_marginTop="8dp"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintStart_toEndOf="@id/groupSubs"
-        app:layout_constraintTop_toBottomOf="@id/groupName"/>
-
-    <Button
-        android:id="@+id/subscribeButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Подписаться"
-        app:layout_constraintStart_toStartOf="@id/groupName"
-        app:layout_constraintTop_toBottomOf="@id/groupSubs"/>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/home"
+        android:icon="@drawable/ic_home"
+        android:title="Главная" />
+    <item
+        android:id="@+id/search"
+        android:icon="@drawable/ic_search"
+        android:title="Поиск" />
+    <item
+        android:id="@+id/subscribe"
+        android:icon="@drawable/ic_subscribe"
+        android:title="Подписки" />
+    <item
+        android:id="@+id/save_news"
+        android:icon="@drawable/ic_save_news"
+        android:title="Сохраненые" />
+    <item
+        android:id="@+id/profile"
+        android:icon="@drawable/ic_profile"
+        android:title="Профиль" />
+</menu>

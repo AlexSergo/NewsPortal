@@ -3,23 +3,58 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="16dp">
+    android:layout_marginTop="25dp"
+    android:paddingStart="16dp"
+    android:paddingEnd="30dp">
 
     <ImageView
-        android:id="@+id/groupImage"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        app:srcCompat="@drawable/ic_launcher_background"
+        android:id="@+id/search_avatar"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/background_search_ico"
+        android:contentDescription="@string/user_avatar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_avatar" />
 
-    <TextView
-        android:id="@+id/groupName"
-        android:layout_margin="16dp"
-        android:textSize="20sp"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Название группы"
-        app:layout_constraintStart_toEndOf="@id/groupImage"
-        app:layout_constraintTop_toTopOf="parent"/>
+        android:layout_marginStart="10dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/search_avatar"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/company_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/raleway"
+            android:text="Adidas"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/company_subs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:fontFamily="@font/raleway"
+            android:text="100500 подписчиков"
+            android:textColor="@color/black" />
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="39dp"
+        android:layout_height="44dp"
+        android:background="@drawable/background_search_check"
+        android:contentDescription="@string/subscribe"
+        android:translationY="3dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_check"
+        app:tint="#9766D6" />
 </androidx.constraintlayout.widget.ConstraintLayout>

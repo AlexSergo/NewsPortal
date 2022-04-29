@@ -3,23 +3,58 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Alexandr/Desktop/projects/News/app/src/main/res/layout/activity_main.xml" value="0.264" />
-        <entry key="..\:/Users/Alexandr/Desktop/projects/News/app/src/main/res/layout/activity_news.xml" value="0.23354958294717332" />
-        <entry key="..\:/Users/Alexandr/Desktop/projects/News/app/src/main/res/layout/category_item.xml" value="0.21467391304347827" />
-        <entry key="..\:/Users/Alexandr/Desktop/projects/News/app/src/main/res/layout/fragment_group.xml" value="0.20923913043478262" />
-        <entry key="..\:/Users/Alexandr/Desktop/projects/News/app/src/main/res/layout/fragment_main_news.xml" value="0.21467391304347827" />
-        <entry key="..\:/Users/Alexandr/Desktop/projects/News/app/src/main/res/layout/fragment_profile.xml" value="0.20923913043478262" />
-        <entry key="..\:/Users/Alexandr/Desktop/projects/News/app/src/main/res/layout/fragment_second.xml" value="0.21965579710144928" />
-        <entry key="..\:/Users/Alexandr/Desktop/projects/News/app/src/main/res/layout/fragment_sign_in.xml" value="0.2296195652173913" />
-        <entry key="..\:/Users/Alexandr/Desktop/projects/News/app/src/main/res/layout/fragment_sign_up.xml" value="0.2296195652173913" />
-        <entry key="..\:/Users/Alexandr/Desktop/projects/News/app/src/main/res/layout/fragment_subscribes.xml" value="0.1983695652173913" />
-        <entry key="..\:/Users/Alexandr/Desktop/projects/News/app/src/main/res/layout/group_header_item.xml" value="0.20380434782608695" />
-        <entry key="..\:/Users/Alexandr/Desktop/projects/News/app/src/main/res/layout/group_item.xml" value="0.1983695652173913" />
-        <entry key="..\:/Users/Alexandr/Desktop/projects/News/app/src/main/res/layout/post_item.xml" value="0.264" />
+        <entry key="..\:/Workspace/NewsPortal/app/src/main/res/drawable/background.xml" value="0.4175" />
+        <entry key="..\:/Workspace/NewsPortal/app/src/main/res/drawable/background_search_add.xml" value="0.421" />
+        <entry key="..\:/Workspace/NewsPortal/app/src/main/res/drawable/background_search_check.xml" value="0.417" />
+        <entry key="..\:/Workspace/NewsPortal/app/src/main/res/drawable/background_search_ico.xml" value="0.1505" />
+        <entry key="..\:/Workspace/NewsPortal/app/src/main/res/drawable/bc_auth.xml" value="0.341" />
+        <entry key="..\:/Workspace/NewsPortal/app/src/main/res/drawable/ic_add.xml" value="0.421" />
+        <entry key="..\:/Workspace/NewsPortal/app/src/main/res/drawable/ic_arrow_back.xml" value="0.2015" />
+        <entry key="..\:/Workspace/NewsPortal/app/src/main/res/drawable/ic_avatar.xml" value="0.2065" />
+        <entry key="..\:/Workspace/NewsPortal/app/src/main/res/drawable/ic_email.xml" value="0.348" />
+        <entry key="..\:/Workspace/NewsPortal/app/src/main/res/drawable/ic_save_news.xml" value="0.417" />
+        <entry key="..\:/Workspace/NewsPortal/app/src/main/res/drawable/ic_save_news_base.xml" value="0.417" />
+        <entry key="..\:/Workspace/NewsPortal/app/src/main/res/drawable/text_input_layout_stroke_color.xml" value="0.4545" />
+        <entry key="..\:/Workspace/NewsPortal/app/src/main/res/drawable/text_input_layout_stroke_color_search.xml" value="0.421" />
+        <entry key="..\:/Workspace/NewsPortal/app/src/main/res/font/playfair_display_bold.xml" value="0.5802083333333333" />
+        <entry key="..\:/Workspace/NewsPortal/app/src/main/res/layout-v28/fragment_sign_in.xml" value="0.55" />
+        <entry key="..\:/Workspace/NewsPortal/app/src/main/res/layout/activity_main.xml" value="0.55" />
+        <entry key="..\:/Workspace/NewsPortal/app/src/main/res/layout/activity_news.xml" value="0.55" />
+        <entry key="..\:/Workspace/NewsPortal/app/src/main/res/layout/category_item.xml" value="0.55" />
+        <entry key="..\:/Workspace/NewsPortal/app/src/main/res/layout/comment_header.xml" value="0.33" />
+        <entry key="..\:/Workspace/NewsPortal/app/src/main/res/layout/comment_item.xml" value="0.33" />
+        <entry key="..\:/Workspace/NewsPortal/app/src/main/res/layout/company_header.xml" value="0.42592592592592593" />
+        <entry key="..\:/Workspace/NewsPortal/app/src/main/res/layout/company_item.xml" value="0.25" />
+        <entry key="..\:/Workspace/NewsPortal/app/src/main/res/layout/content_news.xml" value="0.35688405797101447" />
+        <entry key="..\:/Workspace/NewsPortal/app/src/main/res/layout/current_news_comments.xml" value="0.2204346009193481" />
+        <entry key="..\:/Workspace/NewsPortal/app/src/main/res/layout/current_news_item.xml" value="0.5" />
+        <entry key="..\:/Workspace/NewsPortal/app/src/main/res/layout/fragment_company.xml" value="0.55" />
+        <entry key="..\:/Workspace/NewsPortal/app/src/main/res/layout/fragment_entry.xml" value="0.33" />
+        <entry key="..\:/Workspace/NewsPortal/app/src/main/res/layout/fragment_group.xml" value="0.32155797101449274" />
+        <entry key="..\:/Workspace/NewsPortal/app/src/main/res/layout/fragment_main_news.xml" value="0.55" />
+        <entry key="..\:/Workspace/NewsPortal/app/src/main/res/layout/fragment_profile.xml" value="0.33" />
+        <entry key="..\:/Workspace/NewsPortal/app/src/main/res/layout/fragment_save_news.xml" value="0.5092748735244519" />
+        <entry key="..\:/Workspace/NewsPortal/app/src/main/res/layout/fragment_search.xml" value="0.55" />
+        <entry key="..\:/Workspace/NewsPortal/app/src/main/res/layout/fragment_sign_in.xml" value="0.25" />
+        <entry key="..\:/Workspace/NewsPortal/app/src/main/res/layout/fragment_sign_up.xml" value="0.25" />
+        <entry key="..\:/Workspace/NewsPortal/app/src/main/res/layout/fragment_subscribes.xml" value="0.55" />
+        <entry key="..\:/Workspace/NewsPortal/app/src/main/res/layout/fragment_welcome.xml" value="0.22" />
+        <entry key="..\:/Workspace/NewsPortal/app/src/main/res/layout/group_header_item.xml" value="0.33" />
+        <entry key="..\:/Workspace/NewsPortal/app/src/main/res/layout/group_item.xml" value="0.55" />
+        <entry key="..\:/Workspace/NewsPortal/app/src/main/res/layout/main_news_header.xml" value="0.25" />
+        <entry key="..\:/Workspace/NewsPortal/app/src/main/res/layout/main_news_item.xml" value="0.2672239108409321" />
+        <entry key="..\:/Workspace/NewsPortal/app/src/main/res/layout/post_item.xml" value="0.55" />
+        <entry key="..\:/Workspace/NewsPortal/app/src/main/res/layout/save_news_header.xml" value="0.25" />
+        <entry key="..\:/Workspace/NewsPortal/app/src/main/res/layout/save_news_item.xml" value="0.22" />
+        <entry key="..\:/Workspace/NewsPortal/app/src/main/res/layout/search_header.xml" value="0.2" />
+        <entry key="..\:/Workspace/NewsPortal/app/src/main/res/layout/search_item.xml" value="0.5" />
+        <entry key="..\:/Workspace/NewsPortal/app/src/main/res/layout/welcome_fragment.xml" value="0.22" />
+        <entry key="..\:/Workspace/NewsPortal/app/src/main/res/layout/wellcome_fragment.xml" value="0.55" />
+        <entry key="..\:/Workspace/NewsPortal/app/src/main/res/menu/bottom_menu.xml" value="0.22" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
