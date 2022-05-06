@@ -65,7 +65,7 @@
             android:id="@+id/person_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:enabled="false"
+            android:enabled="true"
             android:inputType="textPersonName"
             android:textColor="@color/black"
             android:textSize="18sp" />
@@ -119,7 +119,7 @@
             android:id="@+id/editTextEmailAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:enabled="false"
+            android:enabled="true"
             android:inputType="textEmailAddress"
             android:textColor="@color/black"
             android:textSize="18sp" />
@@ -146,7 +146,7 @@
             android:id="@+id/editTextTextPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:enabled="false"
+            android:enabled="true"
             android:inputType="textPassword"
             android:textColor="@color/black"
             android:textSize="18sp" />

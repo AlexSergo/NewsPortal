@@ -25,8 +25,8 @@ class GroupsAdapter(private val groupClickListener: GroupClickListener)
 
     override fun onBindViewHolder(holder: GroupViewHolder, position: Int) {
         groups.getOrNull(position)?.let { group->
-            holder.binding.groupName.text = group.title
-            holder.binding.groupName.setOnClickListener{
+            holder.binding.companyName.text = group.title
+            holder.binding.companyName.setOnClickListener{
                 groupClickListener.showGroup(group.id)
             }
         }

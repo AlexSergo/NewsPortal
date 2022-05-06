@@ -29,11 +29,6 @@ class ProfileFragment(private var user: UserEntity) : Fragment() {
         binding = FragmentProfileBinding.inflate(layoutInflater)
 
         binding.userName.text = user.name
-        binding.userEmail.text = user.email
-        binding.subscriptionsButton.setOnClickListener {
-            val activityCallback = requireActivity() as NewsActivityCallback
-            activityCallback.showSubscribesFragment()
-        }
         return binding.root
     }
 }

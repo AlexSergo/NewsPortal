@@ -7,8 +7,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.newsapp.LocalDataSource.Model.Group.GroupEntity
 import com.example.newsapp.LocalDataSource.Model.Post.PostEntity
 import com.example.newsapp.View.MainPage.GroupClickListener
-import com.example.newsapp.databinding.GroupHeaderItemBinding
-import com.example.newsapp.databinding.PostItemBinding
+import com.example.newsapp.databinding.GroupItemBinding
+import com.example.newsapp.databinding.MainNewsItemBinding
 import okhttp3.internal.http2.Header
 
 const val HEADER = "HEADER_OF_GROUP"
@@ -45,10 +45,10 @@ class CurrentGroupAdapter(private val groupClickListener: GroupClickListener)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val viewHolder = if (viewType == 0) {
-            val binding = PostItemBinding.inflate(inflater,parent, false)
+            val binding = MainNewsItemBinding.inflate(inflater,parent, false)
             PostViewHolder(binding)
         } else{
-            val binding = GroupHeaderItemBinding.inflate(inflater,parent, false)
+            val binding = GroupItemBinding.inflate(inflater,parent, false)
             HeaderViewHolder(binding)
         }
         return viewHolder
@@ -60,28 +60,26 @@ class CurrentGroupAdapter(private val groupClickListener: GroupClickListener)
             val postHolder = holder as PostViewHolder
             posts.getOrNull(position)?.let { posts->
                 postHolder.postBinding.postText.text = posts.description
-                postHolder.postBinding.postName.text = posts.title
-                postHolder.postBinding.likeAmount.text = posts.likeAmount.toString()
-                postHolder.postBinding.commentAmount.text = posts.commentAmount.toString()
-                postHolder.postBinding.seeAmount.text = posts.seeAmount.toString()
-                postHolder.postBinding.groupName.text = posts.groupName
+                postHolder.postBinding.postTitle.text = posts.title
+                postHolder.postBinding.postLike.text = posts.likeAmount.toString()
+                postHolder.postBinding.postComment.text = posts.commentAmount.toString()
+                postHolder.postBinding.postViews.text = posts.seeAmount.toString()
+                postHolder.postBinding.postCategory.text = posts.groupName
             }
         }
         else{
             val headerHolder = holder as HeaderViewHolder
             group.let {
-                headerHolder.headerBinding.groupName.text = it!!.title
-                headerHolder.headerBinding.subsAmount.text = it.subscribersAmount.toString()
+                headerHolder.headerBinding.companyName.text = it!!.title
+                headerHolder.headerBinding.companySubs.text = it.subscribersAmount.toString()
 
-                headerHolder.headerBinding.subscribeButton.setOnClickListener{
-                    if (headerHolder.headerBinding.subscribeButton.isEnabled ) {
-                        headerHolder.headerBinding.subscribeButton.isEnabled = false
-                        holder.headerBinding.subscribeButton.text = "Отписаться"
+                headerHolder.headerBinding.imageButton.setOnClickListener{
+                    if (headerHolder.headerBinding.imageButton.isEnabled ) {
+                        headerHolder.headerBinding.imageButton.isEnabled = false
                         groupClickListener.subscribe(groupId = posts[0].groupId)
                     }
                     else{
-                        headerHolder.headerBinding.subscribeButton.isEnabled = true
-                        holder.headerBinding.subscribeButton.text = "Подписаться"
+                        headerHolder.headerBinding.imageButton.isEnabled = true
                         groupClickListener.unsubscribe(groupId = posts[0].groupId)
                     }
                 }
@@ -93,7 +91,7 @@ class CurrentGroupAdapter(private val groupClickListener: GroupClickListener)
         return posts.size
     }
 
-    class PostViewHolder(var postBinding: PostItemBinding): RecyclerView.ViewHolder(postBinding.root)
+    class PostViewHolder(var postBinding: MainNewsItemBinding): RecyclerView.ViewHolder(postBinding.root)
 
-    class HeaderViewHolder(var headerBinding: GroupHeaderItemBinding): RecyclerView.ViewHolder(headerBinding.root)
+    class HeaderViewHolder(var headerBinding: GroupItemBinding): RecyclerView.ViewHolder(headerBinding.root)
 }

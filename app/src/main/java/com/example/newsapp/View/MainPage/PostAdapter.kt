@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.newsapp.LocalDataSource.Model.Post.PostEntity
+import com.example.newsapp.databinding.MainNewsItemBinding
 import com.example.newsapp.databinding.PostItemBinding
 
 class PostAdapter(private val groupClickListener: GroupClickListener)
@@ -19,19 +20,19 @@ class PostAdapter(private val groupClickListener: GroupClickListener)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        val binding = PostItemBinding.inflate(inflater,parent, false)
+        val binding = MainNewsItemBinding.inflate(inflater,parent, false)
         return PostViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: PostViewHolder, position: Int) {
         posts.getOrNull(position)?.let { posts->
             holder.binding.postText.text = posts.description
-            holder.binding.postName.text = posts.title
-            holder.binding.likeAmount.text = posts.likeAmount.toString()
-            holder.binding.commentAmount.text = posts.commentAmount.toString()
-            holder.binding.seeAmount.text = posts.seeAmount.toString()
-            holder.binding.groupName.text = posts.groupName
-            holder.binding.groupName.setOnClickListener{
+            holder.binding.postTitle.text = posts.title
+            holder.binding.postLike.text = posts.likeAmount.toString()
+            holder.binding.postComment.text = posts.commentAmount.toString()
+            holder.binding.postViews.text = posts.seeAmount.toString()
+            holder.binding.postCategory.text = posts.groupName
+            holder.binding.postCategory.setOnClickListener{
                 groupClickListener.showGroup(posts.groupId)
             }
         }
@@ -42,5 +43,5 @@ class PostAdapter(private val groupClickListener: GroupClickListener)
     }
 
 
-    class PostViewHolder(var binding: PostItemBinding): RecyclerView.ViewHolder(binding.root)
+    class PostViewHolder(var binding: MainNewsItemBinding): RecyclerView.ViewHolder(binding.root)
 }

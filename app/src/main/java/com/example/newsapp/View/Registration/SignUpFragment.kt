@@ -42,8 +42,8 @@ class SignUpFragment : Fragment() {
     }
 
     private fun tryRegister(){
-        val name = binding.editTextTextPersonName.text.toString()
-        val email = binding.editTextTextEmailAddress.text.toString()
+        val name = binding.personName.text.toString()
+        val email = binding.editTextEmailAddress.toString()
         val password = binding.editTextTextPassword.text.toString()
         val user = UserEntity(name, email, password)
 

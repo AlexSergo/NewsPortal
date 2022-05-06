@@ -32,7 +32,7 @@ class SignInFragment : Fragment() {
         binding.signInButton.setOnClickListener {
             tryLogin()
         }
-        binding.signUpButton.setOnClickListener{
+        binding.subTitle.setOnClickListener{
             val registrationActivityCallback = requireActivity() as RegistrationActivityCallback
             registrationActivityCallback.showRegisterFragment()
         }

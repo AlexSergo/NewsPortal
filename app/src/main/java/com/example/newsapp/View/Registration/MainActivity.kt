@@ -14,7 +14,7 @@ import com.example.newsapp.ViewModel.NewsViewModelFactory
 import com.example.newsapp.ViewModel.RepositoryInitializer
 import com.example.newsapp.databinding.ActivityMainBinding
 
-interface RegistrationActivityCallback{
+interface RegistrationActivityCallback {
     fun showRegisterFragment()
     fun saveUserData(user: UserEntity)
     fun showNewsActivity()
@@ -41,12 +41,12 @@ class MainActivity : AppCompatActivity(), RegistrationActivityCallback {
         viewModel = ViewModelProvider(this, viewModelFactory)
             .get(NewsViewModel::class.java)
 
-      if (getUserFromLocalDataSource() == null)
-          supportFragmentManager.beginTransaction()
-              .replace(R.id.container, SignInFragment.newInstance())
-              .commitNow()
-        else
-            showNewsActivity()
+            //if (getUserFromLocalDataSource() == null)
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.container, SignInFragment.newInstance())
+                .commitNow()
+       // else
+        //    showNewsActivity()
     }
 
     private fun getUserFromLocalDataSource(): UserEntity? {
@@ -60,24 +60,27 @@ class MainActivity : AppCompatActivity(), RegistrationActivityCallback {
         return null
     }
 
-    override fun showNewsActivity(){
+    override fun showNewsActivity() {
         user = getUserFromLocalDataSource()
         if (user != null) {
             viewModel.login(user!!)
-            viewModel.getUserLiveData().observe(this, Observer {
-                it?.let {
-                    if (it.email == user!!.email) {
-                        val intent = Intent(this, NewsActivity::class.java)
-                        intent.putExtra("USER_NAME", it.name)
-                        intent.putExtra("USER_EMAIL", it.email)
-                        intent.putExtra("USER_TOKEN", it.token)
-                        startActivity(intent)
-                    } else
-                        supportFragmentManager.beginTransaction()
-                            .replace(R.id.container, SignInFragment.newInstance())
-                            .commitNow()
+            viewModel.getUserLiveData().observe(
+                this,
+                Observer {
+                    it?.let {
+                        if (it.email == user!!.email) {
+                            val intent = Intent(this, NewsActivity::class.java)
+                            intent.putExtra("USER_NAME", it.name)
+                            intent.putExtra("USER_EMAIL", it.email)
+                            intent.putExtra("USER_TOKEN", it.token)
+                            startActivity(intent)
+                        } else
+                            supportFragmentManager.beginTransaction()
+                                .replace(R.id.container, SignInFragment.newInstance())
+                                .commitNow()
+                    }
                 }
-            })
+            )
         }
     }
 
