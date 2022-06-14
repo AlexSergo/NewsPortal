@@ -26,5 +26,7 @@ data class PostEntity(
     @SerializedName("see_amount")
     val seeAmount: Int,
     @SerializedName("comm_amount")
-    val commentAmount: Int
+    val commentAmount: Int,
+    @SerializedName("is_liked")
+    val isLiked: Boolean
 )

@@ -8,6 +8,7 @@ import com.example.newsapp.LocalDataSource.Model.User.UserEntity
 import com.example.newsapp.databinding.ActivityNewsBinding
 import com.example.newsapp.R
 import com.example.newsapp.SubscribesFragment
+import com.example.newsapp.View.Group.Comments.CommentsFragment
 import com.example.newsapp.View.Group.GroupFragment
 import com.example.newsapp.View.MainPage.MainNewsFragment
 import com.example.newsapp.View.Profile.ProfileFragment
@@ -17,6 +18,7 @@ import com.example.newsapp.View.Search.SearchFragment
 interface NewsActivityCallback {
     fun showGroupFragment(group: GroupEntity)
     fun showSubscribesFragment()
+    fun showCommentFragment(postId: Int)
 }
 
 class NewsActivity : AppCompatActivity(), NewsActivityCallback {
@@ -33,6 +35,10 @@ class NewsActivity : AppCompatActivity(), NewsActivityCallback {
         user = UserEntity(name = name, email = email, token = token)
 
         binding = ActivityNewsBinding.inflate(layoutInflater)
+        supportFragmentManager.beginTransaction()
+            .add(R.id.mainPageContainer, MainNewsFragment.newInstance(user))
+            .addToBackStack("MainFragment")
+            .commit()
         setContentView(binding.root)
 
         binding.navBar.setOnItemSelectedListener {
@@ -78,6 +84,12 @@ class NewsActivity : AppCompatActivity(), NewsActivityCallback {
     override fun showSubscribesFragment() {
         supportFragmentManager.beginTransaction()
             .replace(R.id.mainPageContainer, SubscribesFragment.newInstance(user))
+            .commitNow()
+    }
+
+    override fun showCommentFragment(postId: Int){
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.mainPageContainer, CommentsFragment.newInstance(postId, user))
             .commitNow()
     }
 

@@ -49,11 +49,12 @@ class SubscribesFragment(private var user: UserEntity) : Fragment() {
                 })
                 viewModel.getGroupById(groupId, user.token)
             }
-
             override fun subscribe(groupId: Int) {
+                viewModel.subscribe(groupId, user.token)
             }
 
             override fun unsubscribe(groupId: Int) {
+                viewModel.unsubscribe(groupId, user.token)
             }
 
         })
@@ -70,7 +71,11 @@ class SubscribesFragment(private var user: UserEntity) : Fragment() {
     private fun showSubscribes() {
         viewModel.getSubscribesLiveData().observe(requireActivity(), Observer {
             it?.let {
-                adapter.set(it)
+                val isSigned = mutableListOf<Boolean>()
+                it.forEach {
+                    isSigned.add(true)
+                }
+                adapter.set(it, isSigned)
             }
         })
         viewModel.getSubscribes(user.token)

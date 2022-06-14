@@ -3,24 +3,38 @@ package com.example.newsapp.View.Group
 import android.renderscript.ScriptGroup
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.newsapp.LocalDataSource.Model.Group.GroupEntity
 import com.example.newsapp.LocalDataSource.Model.Post.PostEntity
+import com.example.newsapp.R
 import com.example.newsapp.View.MainPage.GroupClickListener
+import com.example.newsapp.View.MainPage.PostClickListener
 import com.example.newsapp.databinding.GroupItemBinding
 import com.example.newsapp.databinding.MainNewsItemBinding
 import okhttp3.internal.http2.Header
 
 const val HEADER = "HEADER_OF_GROUP"
 
-class CurrentGroupAdapter(private val groupClickListener: GroupClickListener)
+interface LikeClickListener{
+    fun changePost(likeAmount: Int, isLiked: Boolean)
+}
+
+interface SubscribeClickListener{
+    fun changeSubscribeState(isSigned: Boolean)
+}
+
+class CurrentGroupAdapter(private val groupClickListener: GroupClickListener,
+    private val postClickListener: PostClickListener)
     : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private var group: GroupEntity? = null
+    private var isSigned: Boolean = false
     private var posts = mutableListOf<PostEntity>()
 
-    fun set(group: GroupEntity){
+    fun set(group: GroupEntity, isSigned: Boolean){
         this.group = group
+        this.isSigned = isSigned
         posts = group.posts.toMutableList()
         posts.add(0, PostEntity(
                 groupName = group.title,
@@ -31,7 +45,8 @@ class CurrentGroupAdapter(private val groupClickListener: GroupClickListener)
                 shortDesc = "",
                 likeAmount = 0,
                 seeAmount = 0,
-                commentAmount = 0))
+                commentAmount = 0,
+                isLiked = false))
         notifyDataSetChanged()
     }
 
@@ -58,31 +73,43 @@ class CurrentGroupAdapter(private val groupClickListener: GroupClickListener)
         val viewType = this.getItemViewType(position)
         if (viewType == 0){
             val postHolder = holder as PostViewHolder
-            posts.getOrNull(position)?.let { posts->
-                postHolder.postBinding.postText.text = posts.description
-                postHolder.postBinding.postTitle.text = posts.title
-                postHolder.postBinding.postLike.text = posts.likeAmount.toString()
-                postHolder.postBinding.postComment.text = posts.commentAmount.toString()
-                postHolder.postBinding.postViews.text = posts.seeAmount.toString()
-                postHolder.postBinding.postCategory.text = posts.groupName
+            var changedPost: PostEntity
+            var changedPostPosition = 0
+            posts.getOrNull(position)?.let { post->
+                postHolder.bind(post, postClickListener, object: LikeClickListener {
+                    override fun changePost(likeAmount: Int,  isLiked: Boolean) {
+                        changedPost = PostEntity(
+                            id = post.id,
+                            groupName = post.groupName,
+                            groupId = post.groupId,
+                            userId = post.userId,
+                            title = post.title,
+                            description = post.description,
+                            shortDesc = post.shortDesc,
+                            likeAmount = likeAmount,
+                            seeAmount = post.seeAmount,
+                            commentAmount = post.commentAmount,
+                            isLiked = isLiked
+                        )
+                        changedPostPosition = holder.adapterPosition
+
+                        if (posts.removeIf { it.id == changedPost.id && it.isLiked != changedPost.isLiked}) {
+                            posts.add(changedPostPosition, changedPost)
+                            notifyDataSetChanged()
+                        }
+                    }
+                })
             }
         }
         else{
             val headerHolder = holder as HeaderViewHolder
-            group.let {
-                headerHolder.headerBinding.companyName.text = it!!.title
-                headerHolder.headerBinding.companySubs.text = it.subscribersAmount.toString()
-
-                headerHolder.headerBinding.imageButton.setOnClickListener{
-                    if (headerHolder.headerBinding.imageButton.isEnabled ) {
-                        headerHolder.headerBinding.imageButton.isEnabled = false
-                        groupClickListener.subscribe(groupId = posts[0].groupId)
+            group?.let  { group->
+                headerHolder.bind(group, groupClickListener, object: SubscribeClickListener{
+                    override fun changeSubscribeState(isSigned: Boolean) {
+                        this@CurrentGroupAdapter.isSigned = isSigned
+                        notifyDataSetChanged()
                     }
-                    else{
-                        headerHolder.headerBinding.imageButton.isEnabled = true
-                        groupClickListener.unsubscribe(groupId = posts[0].groupId)
-                    }
-                }
+                }, isSigned)
             }
         }
     }
@@ -90,8 +117,84 @@ class CurrentGroupAdapter(private val groupClickListener: GroupClickListener)
     override fun getItemCount(): Int {
         return posts.size
     }
+}
 
-    class PostViewHolder(var postBinding: MainNewsItemBinding): RecyclerView.ViewHolder(postBinding.root)
+class PostViewHolder(var postBinding: MainNewsItemBinding): RecyclerView.ViewHolder(postBinding.root){
 
-    class HeaderViewHolder(var headerBinding: GroupItemBinding): RecyclerView.ViewHolder(headerBinding.root)
+    private lateinit var postClickListener: PostClickListener
+    private lateinit var likeClickListener: LikeClickListener
+
+    fun bind(post: PostEntity, postClickListener: PostClickListener, likeClickListener: LikeClickListener) {
+        postBinding.postText.text = post.description
+        postBinding.postTitle.text = post.title
+        postBinding.postLike.text = post.likeAmount.toString()
+        postBinding.postComment.text = post.commentAmount.toString()
+        postBinding.postViews.text = post.seeAmount.toString()
+        postBinding.postCategory.text = post.groupName
+        if (post.isLiked) {
+            likeClickListener.changePost(post.likeAmount + 1, post.isLiked)
+            postBinding.postLike.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.ic_liked, 0, 0, 0)
+        }
+
+        this.postClickListener = postClickListener
+        this.likeClickListener = likeClickListener
+
+            setLikeClick(postBinding.postLike, post)
+            setCommentClick(postBinding.postComment, post.id)
+
+        postBinding.postCategory.setOnClickListener {
+            postClickListener.showGroup(post.groupId)
+        }
+    }
+
+    private fun setCommentClick(comment: TextView, postId: Int) {
+        comment.setOnClickListener {
+            postClickListener.showComments(postId)
+        }
+    }
+
+    private fun setLikeClick(like: TextView, post: PostEntity) {
+        like.setOnClickListener(null)
+            like.setOnClickListener {
+                if (!post.isLiked) {
+                    postClickListener.likePost(post.id)
+                    like.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.ic_liked, 0, 0, 0)
+                    likeClickListener.changePost(post.likeAmount + 1, !post.isLiked)
+                }
+                else{
+                    postClickListener.dislikePost(post.id)
+                    like.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.ic_like, 0, 0, 0)
+                    likeClickListener.changePost(post.likeAmount - 1, !post.isLiked)
+                }
+        }
+    }
+}
+
+class HeaderViewHolder(var headerBinding: GroupItemBinding): RecyclerView.ViewHolder(headerBinding.root) {
+    fun bind(
+        group: GroupEntity,
+        groupClickListener: GroupClickListener,
+        subscribeClickListener: SubscribeClickListener,
+        isSigned: Boolean
+    ) {
+        headerBinding.companyName.text = group.title
+        headerBinding.companySubs.text = group.subscribersAmount.toString()
+        headerBinding.imageButton.setImageResource(R.drawable.ic_check2)
+        if (!isSigned)
+            headerBinding.imageButton.setImageResource(R.drawable.ic_check2)
+        else
+            headerBinding.imageButton.setImageResource(R.drawable.ic_check)
+
+            headerBinding.imageButton.setOnClickListener {
+                if (!isSigned) {
+                    groupClickListener.subscribe(groupId = group.id)
+                    headerBinding.imageButton.setImageResource(R.drawable.ic_check)
+                    subscribeClickListener.changeSubscribeState(!isSigned)
+                } else {
+                    groupClickListener.unsubscribe(groupId = group.id)
+                    headerBinding.imageButton.setImageResource(R.drawable.ic_check2)
+                    subscribeClickListener.changeSubscribeState(!isSigned)
+                }
+            }
+        }
 }

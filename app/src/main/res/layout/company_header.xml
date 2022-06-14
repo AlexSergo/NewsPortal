@@ -105,7 +105,6 @@
             app:layout_constraintBottom_toBottomOf="@id/search_avatar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/search_avatar"
-            app:srcCompat="@drawable/ic_check"
             app:tint="#9766D6" />
 
         <TextView

@@ -41,12 +41,12 @@ class MainActivity : AppCompatActivity(), RegistrationActivityCallback {
         viewModel = ViewModelProvider(this, viewModelFactory)
             .get(NewsViewModel::class.java)
 
-            //if (getUserFromLocalDataSource() == null)
+        if (getUserFromLocalDataSource() == null)
             supportFragmentManager.beginTransaction()
                 .replace(R.id.container, SignInFragment.newInstance())
                 .commitNow()
-       // else
-        //    showNewsActivity()
+        else
+            showNewsActivity()
     }
 
     private fun getUserFromLocalDataSource(): UserEntity? {

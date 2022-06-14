@@ -3,13 +3,41 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Alexandr/Desktop/projects/NewsPortal/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1925" />
+        <entry key="..\:/Users/Alexandr/Desktop/projects/NewsPortal/app/src/main/res/drawable/background.xml" value="0.1925" />
+        <entry key="..\:/Users/Alexandr/Desktop/projects/NewsPortal/app/src/main/res/drawable/background_search_add.xml" value="0.1925" />
+        <entry key="..\:/Users/Alexandr/Desktop/projects/NewsPortal/app/src/main/res/drawable/background_search_check.xml" value="0.1925" />
+        <entry key="..\:/Users/Alexandr/Desktop/projects/NewsPortal/app/src/main/res/drawable/background_search_ico.xml" value="0.1925" />
+        <entry key="..\:/Users/Alexandr/Desktop/projects/NewsPortal/app/src/main/res/drawable/ic_add_img.xml" value="0.1925" />
+        <entry key="..\:/Users/Alexandr/Desktop/projects/NewsPortal/app/src/main/res/drawable/ic_add_music.xml" value="0.1925" />
+        <entry key="..\:/Users/Alexandr/Desktop/projects/NewsPortal/app/src/main/res/drawable/ic_add_video.xml" value="0.1925" />
+        <entry key="..\:/Users/Alexandr/Desktop/projects/NewsPortal/app/src/main/res/drawable/ic_arrow_back.xml" value="0.1925" />
+        <entry key="..\:/Users/Alexandr/Desktop/projects/NewsPortal/app/src/main/res/drawable/ic_check.xml" value="0.1925" />
+        <entry key="..\:/Users/Alexandr/Desktop/projects/NewsPortal/app/src/main/res/drawable/ic_check2.xml" value="0.1925" />
+        <entry key="..\:/Users/Alexandr/Desktop/projects/NewsPortal/app/src/main/res/drawable/ic_comment.xml" value="0.1925" />
+        <entry key="..\:/Users/Alexandr/Desktop/projects/NewsPortal/app/src/main/res/drawable/ic_icon.xml" value="0.1" />
+        <entry key="..\:/Users/Alexandr/Desktop/projects/NewsPortal/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1925" />
+        <entry key="..\:/Users/Alexandr/Desktop/projects/NewsPortal/app/src/main/res/drawable/ic_like.xml" value="0.1845" />
+        <entry key="..\:/Users/Alexandr/Desktop/projects/NewsPortal/app/src/main/res/drawable/ic_liked.xml" value="0.1925" />
+        <entry key="..\:/Users/Alexandr/Desktop/projects/NewsPortal/app/src/main/res/drawable/ic_minimise.xml" value="0.1" />
+        <entry key="..\:/Users/Alexandr/Desktop/projects/NewsPortal/app/src/main/res/drawable/ic_save_news.xml" value="0.1925" />
+        <entry key="..\:/Users/Alexandr/Desktop/projects/NewsPortal/app/src/main/res/drawable/ic_subscribe.xml" value="0.1925" />
+        <entry key="..\:/Users/Alexandr/Desktop/projects/NewsPortal/app/src/main/res/drawable/ic_upload.xml" value="0.1925" />
+        <entry key="..\:/Users/Alexandr/Desktop/projects/NewsPortal/app/src/main/res/drawable/ic_views.xml" value="0.1925" />
+        <entry key="..\:/Users/Alexandr/Desktop/projects/NewsPortal/app/src/main/res/drawable/text_input_layout_stroke_color.xml" value="0.1925" />
+        <entry key="..\:/Users/Alexandr/Desktop/projects/NewsPortal/app/src/main/res/drawable/text_input_layout_stroke_color_search.xml" value="0.1925" />
+        <entry key="..\:/Users/Alexandr/Desktop/projects/NewsPortal/app/src/main/res/layout/activity_main.xml" value="0.13858695652173914" />
+        <entry key="..\:/Users/Alexandr/Desktop/projects/NewsPortal/app/src/main/res/layout/activity_news.xml" value="0.2427536231884058" />
         <entry key="..\:/Users/Alexandr/Desktop/projects/NewsPortal/app/src/main/res/layout/category_item.xml" value="0.1" />
         <entry key="..\:/Users/Alexandr/Desktop/projects/NewsPortal/app/src/main/res/layout/comment_header.xml" value="0.1598731884057971" />
-        <entry key="..\:/Users/Alexandr/Desktop/projects/NewsPortal/app/src/main/res/layout/comment_item.xml" value="0.1" />
+        <entry key="..\:/Users/Alexandr/Desktop/projects/NewsPortal/app/src/main/res/layout/comment_item.xml" value="0.2" />
         <entry key="..\:/Users/Alexandr/Desktop/projects/NewsPortal/app/src/main/res/layout/company_header.xml" value="0.264" />
         <entry key="..\:/Users/Alexandr/Desktop/projects/NewsPortal/app/src/main/res/layout/company_item.xml" value="0.2427536231884058" />
+        <entry key="..\:/Users/Alexandr/Desktop/projects/NewsPortal/app/src/main/res/layout/fragment_comments.xml" value="0.2" />
         <entry key="..\:/Users/Alexandr/Desktop/projects/NewsPortal/app/src/main/res/layout/fragment_company.xml" value="0.12158054711246201" />
-        <entry key="..\:/Users/Alexandr/Desktop/projects/NewsPortal/app/src/main/res/layout/fragment_entry.xml" value="0.12158054711246201" />
+        <entry key="..\:/Users/Alexandr/Desktop/projects/NewsPortal/app/src/main/res/layout/fragment_entry.xml" value="0.136" />
+        <entry key="..\:/Users/Alexandr/Desktop/projects/NewsPortal/app/src/main/res/layout/fragment_main_news.xml" value="0.2427536231884058" />
+        <entry key="..\:/Users/Alexandr/Desktop/projects/NewsPortal/app/src/main/res/layout/fragment_search.xml" value="0.25" />
         <entry key="..\:/Users/Alexandr/Desktop/projects/NewsPortal/app/src/main/res/layout/fragment_sign_in.xml" value="0.2427536231884058" />
         <entry key="..\:/Users/Alexandr/Desktop/projects/NewsPortal/app/src/main/res/layout/fragment_sign_up.xml" value="0.2427536231884058" />
         <entry key="..\:/Users/Alexandr/Desktop/projects/NewsPortal/app/src/main/res/layout/fragment_subscribes.xml" value="0.2427536231884058" />
@@ -18,7 +46,7 @@
         <entry key="..\:/Users/Alexandr/Desktop/projects/NewsPortal/app/src/main/res/layout/group_item.xml" value="0.2427536231884058" />
         <entry key="..\:/Users/Alexandr/Desktop/projects/NewsPortal/app/src/main/res/layout/main_news_header.xml" value="0.2427536231884058" />
         <entry key="..\:/Users/Alexandr/Desktop/projects/NewsPortal/app/src/main/res/layout/main_news_item.xml" value="0.4" />
-        <entry key="..\:/Users/Alexandr/Desktop/projects/NewsPortal/app/src/main/res/layout/post_item.xml" value="0.2427536231884058" />
+        <entry key="..\:/Users/Alexandr/Desktop/projects/NewsPortal/app/src/main/res/layout/post_item.xml" value="0.25" />
         <entry key="..\:/Workspace/NewsPortal/app/src/main/res/drawable/background.xml" value="0.4175" />
         <entry key="..\:/Workspace/NewsPortal/app/src/main/res/drawable/background_search_add.xml" value="0.421" />
         <entry key="..\:/Workspace/NewsPortal/app/src/main/res/drawable/background_search_check.xml" value="0.417" />

@@ -17,15 +17,21 @@ import com.example.newsapp.ViewModel.RepositoryInitializer
 import com.example.newsapp.databinding.FragmentMainNewsBinding
 
 interface GroupClickListener{
-    fun showGroup(groupId: Int)
     fun subscribe(groupId: Int)
     fun unsubscribe(groupId: Int)
+    fun showGroup(groupId: Int)
+}
+
+interface PostClickListener{
+    fun likePost(postId: Int)
+    fun dislikePost(likeId: Int)
+    fun showComments(postId: Int)
+    fun showGroup(groupId: Int)
 }
 
 class MainNewsFragment(private var user: UserEntity) : Fragment() {
 
     private lateinit var binding: FragmentMainNewsBinding
-    private lateinit var adapter: CategoryAdapter
     private lateinit var postAdapter: PostAdapter
     private lateinit var viewModelFactory: NewsViewModelFactory
     private lateinit var viewModel: NewsViewModel
@@ -43,13 +49,23 @@ class MainNewsFragment(private var user: UserEntity) : Fragment() {
         viewModel = ViewModelProvider(this, viewModelFactory)
             .get(NewsViewModel::class.java)
 
-        val layoutManager = LinearLayoutManager(requireContext(),
-            LinearLayoutManager.HORIZONTAL, false)
-        binding.categoryRecyclerView.layoutManager = layoutManager
         binding.postRecyclerView.layoutManager =  LinearLayoutManager(requireContext(),
             LinearLayoutManager.VERTICAL, false)
-        adapter = CategoryAdapter()
-        postAdapter = PostAdapter(object: GroupClickListener{
+
+        postAdapter = PostAdapter(object: PostClickListener{
+            override fun likePost(postId: Int) {
+                viewModel.likePost(postId, user.token)
+            }
+
+            override fun dislikePost(likeId: Int) {
+                viewModel.dislikePost(likeId, user.token)
+            }
+
+            override fun showComments(postId: Int) {
+                val activityCallback = requireActivity() as NewsActivityCallback
+                activityCallback.showCommentFragment(postId)
+            }
+
             override fun showGroup(groupId: Int) {
                 viewModel.getGroupLiveData().observe(requireActivity(), Observer {
                     it.let {
@@ -57,35 +73,14 @@ class MainNewsFragment(private var user: UserEntity) : Fragment() {
                         activityCallback.showGroupFragment(it)
                     }
                 })
-                viewModel.getGroupById(groupId, user.token)
-            }
-
-            override fun subscribe(groupId: Int) {
-
-            }
-
-            override fun unsubscribe(groupId: Int) {
-
             }
 
         })
         binding.postRecyclerView.adapter = postAdapter
-        binding.categoryRecyclerView.adapter = adapter
 
-        loadCategories()
         loadGroups()
 
         return binding.root
-    }
-
-    private fun loadCategories(){
-        val categoryLiveData = viewModel.getCategoryListLiveData()
-        categoryLiveData.observe(requireActivity(), Observer {
-            categoryLiveData.value?.let {
-                adapter.set(it)
-            }
-        })
-        viewModel.getAllCategories()
     }
 
     private fun loadGroups(){

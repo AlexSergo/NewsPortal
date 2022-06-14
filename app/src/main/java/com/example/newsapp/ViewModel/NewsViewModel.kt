@@ -5,12 +5,15 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.newsapp.LocalDataSource.Model.Category.CategoryEntity
+import com.example.newsapp.LocalDataSource.Model.Comment.CommentEntity
 import com.example.newsapp.LocalDataSource.Model.Group.GroupEntity
 import com.example.newsapp.LocalDataSource.Model.Group.ShortGroupEntity
+import com.example.newsapp.LocalDataSource.Model.Like.LikeResponse
 import com.example.newsapp.LocalDataSource.Model.Post.PostEntity
 import com.example.newsapp.LocalDataSource.Model.Repository
 import com.example.newsapp.LocalDataSource.Model.User.UserEntity
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class NewsViewModel(private val repository: Repository): ViewModel() {
@@ -21,6 +24,9 @@ class NewsViewModel(private val repository: Repository): ViewModel() {
     private val groupListLiveData = MutableLiveData<List<ShortGroupEntity>>()
     private val groupLiveData = MutableLiveData<GroupEntity>()
     private val subscribesLiveData = MutableLiveData<List<ShortGroupEntity>>()
+    private val commentsLiveData = MutableLiveData<List<CommentEntity>>()
+    private val commentLiveData = MutableLiveData<CommentEntity>()
+    private val likeLiveData = MutableLiveData<LikeResponse>()
 
     fun getCategoryListLiveData(): LiveData<List<CategoryEntity>> {
         return categoryListLiveData
@@ -34,6 +40,10 @@ class NewsViewModel(private val repository: Repository): ViewModel() {
         return categoryLiveData
     }
 
+    fun getLikeLiveData(): LiveData<LikeResponse>{
+        return likeLiveData
+    }
+
     fun getGroupLiveData(): LiveData<GroupEntity>{
         return groupLiveData
     }
@@ -44,6 +54,14 @@ class NewsViewModel(private val repository: Repository): ViewModel() {
 
     fun getUserLiveData(): LiveData<UserEntity>{
         return userLiveData
+    }
+
+    fun getCommentsLiveData(): LiveData<List<CommentEntity>>{
+        return commentsLiveData
+    }
+
+    fun getCommentLiveData(): LiveData<CommentEntity>{
+        return commentLiveData
     }
 
     fun login(user: UserEntity) = viewModelScope.launch(Dispatchers.IO) {
@@ -85,6 +103,22 @@ class NewsViewModel(private val repository: Repository): ViewModel() {
 
     fun getSubscribes(token: String) = viewModelScope.launch(Dispatchers.IO){
         subscribesLiveData.postValue(repository.getSubscribes(token))
+    }
+
+    fun likePost(postId: Int, token: String) = viewModelScope.launch(Dispatchers.IO){
+        repository.likePost(postId, token)
+    }
+
+    fun dislikePost(postId: Int, token: String) = viewModelScope.launch(Dispatchers.IO){
+        repository.dislikePost(postId, token)
+    }
+
+    fun getCommentsForPost(postId: Int, token: String) = viewModelScope.launch(Dispatchers.IO) {
+        commentsLiveData.postValue(repository.getCommentsForPost(postId, token))
+    }
+
+    fun createComment(commentEntity: CommentEntity, token: String) = viewModelScope.launch(Dispatchers.IO){
+       commentLiveData.postValue( repository.createComment(commentEntity, token))
     }
 
 }

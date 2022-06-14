@@ -6,7 +6,7 @@ data class SubscribeResponse(
     @SerializedName("user_id")
     val userId: Int,
     @SerializedName("group_id")
-    val groupId: String,
+    val groupId: Int,
     @SerializedName("updated_at")
     val updatedAt: String,
     @SerializedName("created_at")
