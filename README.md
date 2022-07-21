@@ -1,7 +1,7 @@
 # Новостной портал
 ____
 
-Работа программы
+#### Работа программы
 ![ Alt text](https://github.com/AlexSergo/NewsPortal/blob/develop/video/news.gif)
 
 Используемые технологии 
