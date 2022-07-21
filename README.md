@@ -1,2 +1,2 @@
 # NewsPortal
-![ Alt text](https://github.com/AlexSergo/NewsPortal/tree/develop/video/news.gif)
+![ Alt text](https://github.com/AlexSergo/NewsPortal/blob/develop/video/news.gif)
